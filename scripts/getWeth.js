@@ -1,4 +1,4 @@
-const { getNamedAccounts, ethers } = require("hardhat")
+const { getNamedAccounts, ethers, network } = require("hardhat")
 const { etherscan } = require("../hardhat.config")
 const { networkConfig } = require("../helper-hardhat-config")
 
