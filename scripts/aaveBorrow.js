@@ -1,5 +1,5 @@
 const { ethers, getNamedAccounts, network } = require("hardhat")
-const { getWeth } = require("../scripts/getWeth")
+const { getWeth, AMOUNT } = require("../scripts/getWeth")
 const { networkConfig } = require("../helper-hardhat-config")
 
 async function main() {
@@ -13,7 +13,7 @@ async function main() {
 
 // Lending pool addresses provider address: 0x5E52dEc931FFb32f609681B8438A51c675cc232d
 
-async function getLendingPool() {
+async function getLendingPool(account) {
     const lendingPoolAddressProvider = await ethers.getContractAt(
         "ILendingPoolAddressesProvider",
         networkConfig[network.config.chainId].lendingPoolAddressesProvider,

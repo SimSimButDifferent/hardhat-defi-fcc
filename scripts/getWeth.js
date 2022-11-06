@@ -13,10 +13,10 @@ async function getWeth() {
         networkConfig[network.config.chainId].wethToken,
         deployer
     )
-    await iWeth.deposit({ value: AMOUNT })
-    await Text.wait(1)
+    const txResponse = await iWeth.deposit({ value: AMOUNT })
+    await txResponse.wait(1)
     const wethBalance = await iWeth.balanceOf(deployer)
     console.log(`Got ${wethBalance.toString()} WETH`)
 }
 
-module.exports = { getWeth }
+module.exports = { getWeth, AMOUNT }
